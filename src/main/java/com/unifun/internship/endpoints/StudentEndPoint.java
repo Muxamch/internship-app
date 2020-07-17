@@ -2,6 +2,7 @@ package com.unifun.internship.endpoints;
 
 
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.unifun.internship.orm.Group;
 import com.unifun.internship.orm.Students;
@@ -14,12 +15,13 @@ import javax.ws.rs.QueryParam;
 @Path("/students")
 public class StudentEndPoint {
 
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @GET
     @Path("student")
-    public String getList(){
-        return Students.listAll().toString();
+    public String getList() throws JsonProcessingException {
+        String studentsJson = objectMapper.writeValue(Students.listAll());
+        return studentsJson;
     }
 
     @GET
