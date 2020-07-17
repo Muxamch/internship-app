@@ -17,12 +17,15 @@ import {StudentsComponent} from './pages/students/students.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import {MatTableModule} from '@angular/material/table';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzTableModule,
     NzDividerModule,
-    NzButtonModule
+    NzButtonModule,
+    NzIconModule,
+    MatTableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
